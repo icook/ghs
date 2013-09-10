@@ -6,7 +6,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 requires = [
     'PyMetrics',
     'pymongo',
-    'flask'
+    'flask',
+    'Flask-PyMongo'
 ]
 
 testing_extras = ['nose', 'coverage', 'beautifulsoup4', 'python-coveralls']
