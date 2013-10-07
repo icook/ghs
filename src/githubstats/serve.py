@@ -11,8 +11,8 @@ app.config['MONGO_PORT'] = 27017
 app.config['MONGO_DBNAME'] = 'metrics'
 mongo = PyMongo(app, config_prefix='MONGO')
 
-@app.route('/')
-def custom_static():
+@app.route('/<path:path>')
+def custom_static(path):
     return send_from_directory(os.path.abspath('.'), 'index.html')
 
 @app.route("/project/<path:package>")
