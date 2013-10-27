@@ -5,10 +5,13 @@ guard 'livereload' do
     watch(%r{templates/.+\.(jinja|jinja2)})
 end
 
-guard 'coffeescript', :input => 'src/coffee', :output => 'src/githubstats/static/js' do
-    watch(%r{^src/coffee/.+\.coffee$})
+guard 'coffeescript', :input => 'coffee', :output => 'static/js' do
+    watch(%r{^coffee/.+\.coffee$})
 end
 
-guard 'compass' do
-  watch(%r{^.+\.sass$})
+guard :shell do
+    watch(%r{^scss/.+\.scss$}) do
+        `compass compile --force --css-dir="static/css" --sass-dir="scss" --images-dir="static/img" -s compressed`
+        puts "Recompiled sass"
+    end
 end

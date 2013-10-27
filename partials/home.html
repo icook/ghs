@@ -1,0 +1,9 @@
+<input ng-model="new_repo">
+<a class="btn btn-info">Add repo</a>
+
+<h2>Repo List</h2>
+<ul>
+  <li ng-repeat="repo in repos">
+      <a href="#/{{repo.path}}" class="thumb">{{repo.path}}</a>
+  </li>
+</ul>
